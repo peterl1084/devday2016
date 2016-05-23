@@ -1,0 +1,89 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>com.vaadin.devday.peter</groupId>
+		<artifactId>app</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+
+	<artifactId>ui</artifactId>
+
+	<packaging>war</packaging>
+
+	<name>Demo App UI</name>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.vaadin.devday.peter</groupId>
+			<artifactId>common</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>javax</groupId>
+			<artifactId>javaee-web-api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.vaadin</groupId>
+			<artifactId>vaadin-server</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.vaadin</groupId>
+			<artifactId>vaadin-push</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.vaadin</groupId>
+			<artifactId>vaadin-themes</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.vaadin</groupId>
+			<artifactId>vaadin-client-compiled</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.vaadin</groupId>
+			<artifactId>vaadin-cdi</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.vaadin</groupId>
+			<artifactId>vaadin-push</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.vaadin.addons.lazyquerycontainer</groupId>
+			<artifactId>vaadin-lazyquerycontainer</artifactId>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>com.vaadin</groupId>
+				<artifactId>vaadin-maven-plugin</artifactId>
+				<version>${vaadin.version}</version>
+				<configuration>
+					<extraJvmArgs>-Xmx512M -Xss1024k</extraJvmArgs>
+					<webappDirectory>${basedir}/target/classes/VAADIN/widgetsets</webappDirectory>
+					<draftCompile>true</draftCompile>
+					<style>DETAILED</style>
+					<strict>true</strict>
+				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>resources</goal>
+							<goal>update-widgetset</goal>
+							<goal>compile</goal>
+                            <goal>update-theme</goal>
+                            <goal>compile-theme</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>
