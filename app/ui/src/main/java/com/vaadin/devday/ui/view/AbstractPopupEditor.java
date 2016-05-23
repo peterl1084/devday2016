@@ -69,6 +69,7 @@ public abstract class AbstractPopupEditor<DTO extends AbstractDTOWithIdentity> e
 
 	public AbstractPopupEditor(Class<DTO> dtoType) {
 		this(new FormLayout(), dtoType);
+		fieldLayout.setMargin(true);
 	}
 
 	public AbstractPopupEditor(AbstractOrderedLayout layout, Class<DTO> dtoType) {
