@@ -31,10 +31,7 @@ class ViewChangeListenerBean implements ViewChangeListener {
 			for (ViewChangeAllowedVerifier verifier : verifiers) {
 				if (currentView.equals(verifier)) {
 					if (!verifier.isViewChangeAllowed()) {
-						System.out.println(verifier + " says NOO!");
 						return false;
-					} else {
-						System.out.println(verifier + " says YYEEES!");
 					}
 				}
 			}

@@ -27,10 +27,6 @@ public class DevDayUI extends UI {
 	@Inject
 	private javax.enterprise.event.Event<UIInitializedEvent> event;
 
-	private int uiId;
-
-	private String embedId;
-
 	@Override
 	protected void init(VaadinRequest request) {
 		addStyleName(ValoTheme.UI_WITH_MENU);

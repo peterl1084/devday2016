@@ -1,10 +1,7 @@
 package com.vaadin.devday.service.customer;
 
-import java.util.List;
-
 import com.vaadin.devday.entity.AbstractEntity;
 import com.vaadin.devday.service.AbstractDTOWithIdentity;
-import com.vaadin.devday.service.AddressEntity;
 import com.vaadin.devday.service.CustomerEntity;
 import com.vaadin.devday.service.DTOType;
 import com.vaadin.devday.service.EntityToDTOConverter;
@@ -29,14 +26,6 @@ public class CustomerEntityToListingDTOConverter implements EntityToDTOConverter
 		listingDTO.setFirstName(entity.getFirstName());
 		listingDTO.setLastName(entity.getLastName());
 		listingDTO.setBirthDate(entity.getBirthDate());
-
-		List<AddressEntity> addresses = entity.getAddresses();
-		if (!addresses.isEmpty()) {
-			AddressEntity address = addresses.iterator().next();
-			listingDTO.setStreet(address.getStreet());
-			listingDTO.setCity(address.getCity());
-			listingDTO.setPostalCode(address.getPostalCode());
-		}
 
 		return listingDTO;
 	}
